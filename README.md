@@ -1,2 +1,5 @@
 # pbfi
-Paul's Brainfuck Interpreter
+Paul's [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) Interpreter
+
+Written March 2012
+
