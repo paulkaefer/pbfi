@@ -64,6 +64,7 @@ void main(void)
     // TODO: dynamically allocate memory for the following array
     char program_string[100000];
     char ch = '0';
+    char input_ch = '\n';
     int stop = 0;
     int i = 0;
     int pos = -1;
@@ -100,9 +101,17 @@ void main(void)
     // position in program
     pos = 0;
 
+    //pid_t pid = fork();
+
+    //if (pid != 0) {
+
     while (!stop)
     {
         ch = program_string[pos];
+        if (ch == "!")
+        {
+            printf("\n'!' functionality is not available at this time.\n");
+        }
         if (ch == '+')
         {
             currtape->bytes[index]++;
@@ -117,7 +126,11 @@ void main(void)
         }
         else if (ch == ',')
         {
-            currtape->bytes[index] = getchar();
+            printf("Enter a character: ");
+            while ( (input_ch = getchar()) != '\n' )
+            {
+            }
+            currtape->bytes[index] = input_ch;
         }
         else if (ch == '>')
         {
@@ -225,7 +238,7 @@ void main(void)
                 }// end while (!found)
             }// end if
         }// end ']' case
-        else if (ch==EOF)
+        else if ((ch==EOF))// || (ch=='\n'))
         {
             // int value of EOF is -1 (even if cast to an unsigned int)
             stop = 1;
